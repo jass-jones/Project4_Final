@@ -20,7 +20,7 @@
         <p>Use the sliders below to predict the success of your song on Spotify</p>
       </div>
     </div>
-    <form action="/action_page.php">
+    <form action="{{ url_for('predict')}}"method="post">
     <div class="row">
         <div class="col-md-12">   
         <h2>Popularity</h2>
@@ -111,7 +111,7 @@
         </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-12">   
             <h2>Key</h2>
             <p></p>
@@ -133,9 +133,14 @@
                 <br><br>
                 <input type="submit" value="Submit">
         </div>
-    </div>
+    </div> -->
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
     
+    <br>
+    <br>
+
+    {{ prediction_text}}
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
