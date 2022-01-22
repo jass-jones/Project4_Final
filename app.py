@@ -20,7 +20,10 @@ def predict():
     init_features = [float(x) for x in request.form.values()]
     final_features = [np.array(init_features)]
     prediction = model.predict(final_features)
-    return render_template('index.html', prediction_text = f"Predicted Class: {prediction}")
+    if prediction == 1:
+        return render_template('index.html', prediction_text = f"This song is predicted to make the Spotify Top 200 Charts!")
+    else:
+        return render_template('index.html', prediction_text = f"This song is not predicted to make the Spotify Top 200 Charts.")
 
 
 if __name__ == '__main__':
