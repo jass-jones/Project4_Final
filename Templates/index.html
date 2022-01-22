@@ -22,20 +22,39 @@
     </div>
     <form action="{{ url_for('predict')}}"method="post">
     <!-- <div class="row">
+    <div class="range-slider">
+        <h2>Popularity</h2>
+        <input class="range-slider__range" type="range" value="100" min="0" max="500">
+        <span class="range-slider__value">0</span>
+    </div>
+    <div class="row">
         <div class="col-md-12">   
         <h2>Popularity</h2>
         <p>Popularity of the song, 100 being the most popular.</p>
         <div class="slidecontainer" data-toggle="tooltip" data-placement="top">
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <label for="fader">Value:</label>
+            <input type="range" min="1" max="100" value="50" class="slider" id="fader" step="1" oninput="outputUpdate(value)">
+            <output for="fader" id="volume">50</output>
+            <p>Value: <span id="demo"></span></p>
         </div>
         </div>
-    </div>
+    <div class="row">
+        <div class="col-md-12">   
+        <h2>Popularity</h2>
+        <p>Popularity of the song, 100 being the most popular.</p> -->
+        <!-- <form class="multi-range-field my-5 pb-5">
+            <input id="multi1" class="multi-range" type="range" />
+          </form> -->
+                <!-- <p>Value: <span id="demo"></span></p> -->
+        <!-- </div>
+    </div> -->
     <div class="row">
         <div class="col-md-12">   
         <h2>Acousticness</h2>
         <p>Acousticness refers to not using electrical amplification of musical instruments. A score of 1 is indicative of a song played entirely on acoustic instruments.</p>
         <div class="slidecontainer">
             <input type="range" min="0" max="1" value=".5" step=".01" class="slider" id="myRange">
+            <p>Value: <span id="demo"></span></p>
         </div>
         </div>
     </div>
@@ -45,6 +64,7 @@
         <p>Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.</p>
         <div class="slidecontainer">
             <input type="range" min="0" max="1" value=".5" step=".01" class="slider" id="myRange">
+            <p>Value: <span id="demo"></span></p>
         </div>
         </div>
     </div>
@@ -54,6 +74,7 @@
         <p>Duration of the track in milliseconds.</p>
         <div class="slidecontainer">
             <input type="range" min="0" max="3600000" value="1800000" class="slider" id="myRange">
+            <p>Value: <span id="demo"></span></p>
         </div>
         </div>
     </div>
@@ -63,6 +84,7 @@
         <p>Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.</p>
         <div class="slidecontainer">
             <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="myRange">
+            <p>Value: <span id="demo"></span></p>
         </div>
         </div>
     </div>
@@ -146,6 +168,16 @@
 		<input type="text" name="valence" placeholder="Valence" required="required" />
         <input type="text" name="danceability" placeholder="Danceability" required="required" />
 	
+    <div></div>
+    <!-- <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+        
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+        </script> -->
     <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
     
