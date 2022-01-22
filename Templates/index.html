@@ -21,179 +21,66 @@
       </div>
     </div>
     <form action="{{ url_for('predict')}}"method="post">
-    <!-- <div class="row">
-    <div class="range-slider">
-        <h2>Popularity</h2>
-        <input class="range-slider__range" type="range" value="100" min="0" max="500">
-        <span class="range-slider__value">0</span>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
         <h2>Popularity</h2>
         <p>Popularity of the song, 100 being the most popular.</p>
-        <div class="slidecontainer" data-toggle="tooltip" data-placement="top">
-            <label for="fader">Value:</label>
-            <input type="range" min="1" max="100" value="50" class="slider" id="fader" step="1" oninput="outputUpdate(value)">
-            <output for="fader" id="volume">50</output>
-            <p>Value: <span id="demo"></span></p>
-        </div>
-        </div>
-    <div class="row">
-        <div class="col-md-12">   
-        <h2>Popularity</h2>
-        <p>Popularity of the song, 100 being the most popular.</p> -->
-        <!-- <form class="multi-range-field my-5 pb-5">
-            <input id="multi1" class="multi-range" type="range" />
-          </form> -->
-                <!-- <p>Value: <span id="demo"></span></p> -->
-        <!-- </div>
-    </div> -->
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between: 0 and 100</p>
+        <input type="text" name="popularity" placeholder="Popularity" required="required" />
         <h2>Acousticness</h2>
         <p>Acousticness refers to not using electrical amplification of musical instruments. A score of 1 is indicative of a song played entirely on acoustic instruments.</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="1" value=".5" step=".01" class="slider" id="myRange">
-            <p>Value: <span id="demo"></span></p>
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between: 0 and 1</p>
+        <input type="text" name="acousticness" placeholder="Acousticness" required="required" />
         <h2>Danceability</h2>
         <p>Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="1" value=".5" step=".01" class="slider" id="myRange">
-            <p>Value: <span id="demo"></span></p>
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
-        <h2>Duration</h2>
-        <p>Duration of the track in milliseconds.</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="3600000" value="1800000" class="slider" id="myRange">
-            <p>Value: <span id="demo"></span></p>
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between: 0 and 1</p>
+        <input type="text" name="danceability" placeholder="Danceability" required="required" />
         <h2>Energy</h2>
         <p>Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="myRange">
-            <p>Value: <span id="demo"></span></p>
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between: 0 and 1</p>
+		<input type="text" name="energy" placeholder="Energy" required="required" />
+        <h2>Duration</h2>
+        <p>Duration of the track in milliseconds.</p>
+        <p>Enter value between: 0 and 3600000</p>
+        <input type="text" name="duration_ms" placeholder="Duration (ms)" required="required" />
         <h2>Liveness</h2>
         <p>Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live.</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="myRange">
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between: 0 and 1</p>
+        <input type="text" name="liveness" placeholder="Liveness" required="required" />
         <h2>Loudness</h2>
         <p>The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typical range between -60 and 0 db.</p>
-        <div class="slidecontainer">
-            <input type="range" min="-60" max="5" value="-27.5" class="slider" id="myRange">
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between:-60 and 5</p>
+        <input type="text" name="loudness" placeholder="Loudness" required="required" />
         <h2>Speechiness</h2>
         <p>Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks.</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="myRange">
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between: 0 and 1</p>
+		<input type="text" name="speechiness" placeholder="Speechiness" required="required" />
         <h2>Tempo</h2>
         <p>Beats per minute</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="400" value="200" class="slider" id="myRange">
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">   
+        <p>Enter value between: 0 and 400</p>
+		<input type="text" name="tempo" placeholder="Tempo" required="required" />
         <h2>Valence</h2>
         <p>A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</p>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="myRange">
-        </div>
-        </div>
-    </div> -->
-    <!-- <div class="row">
-        <div class="col-md-12">   
-            <h2>Key</h2>
-            <p></p>
-                <label for="keys">Choose a key:</label>
-                <select name="keys" id="keys">
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="E">E</option>
-                <option value="F">F</option>
-                <option value="G">G</option>
-                <option value="A#">A#</option>
-                <option value="C#">C#</option>
-                <option value="D#">D#</option>
-                <option value="F#">F#</option>
-                <option value="G#">G#</option>
-                </select>
-                <br><br>
-                <input type="submit" value="Submit">
-        </div>
-    </div> -->
-    <!-- <div></div> -->
-        <input type="text" name="popularity" placeholder="Popularity" required="required" />
-        <input type="text" name="acousticness" placeholder="Acousticness" required="required" />
-		<input type="text" name="duration_ms" placeholder="Duration (ms)" required="required" />
-		<input type="text" name="energy" placeholder="Energy" required="required" />
-        <input type="text" name="liveness" placeholder="Liveness" required="required" />
-        <input type="text" name="loudness" placeholder="Loudness" required="required" />
-		<input type="text" name="speechiness" placeholder="Speechiness" required="required" />
-		<input type="text" name="tempo" placeholder="Tempo" required="required" />
+        <p>Enter value between: 0 and 1</p>
 		<input type="text" name="valence" placeholder="Valence" required="required" />
-        <input type="text" name="danceability" placeholder="Danceability" required="required" />
 	
-    <div></div>
-    <!-- <script>
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("demo");
-        output.innerHTML = slider.value;
-        
-        slider.oninput = function() {
-          output.innerHTML = this.value;
-        }
-        </script> -->
+ 
     <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
     
     <br>
     <br>
-
-    {{ prediction_text}}
+    <div class="row">
+        <div class="col-md-12", id = "row2">
+            <h1>{{ prediction_text}}</h1>
+        </div>
+      </div>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <!-- <script src="{{ url_for('static', filename = 'js/app.js')}}"></script> -->
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<!-- <script src="{{ url_for('static', filename = 'js/heatmap.js')}}"></script> -->
 
 </body>
 
