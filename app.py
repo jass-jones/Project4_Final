@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 # import easygui
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder= 'Templates')
 classifier = pickle.load(open('classifier.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
 
